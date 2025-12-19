@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>txt2clip - Text File to Clipboard</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="template.png" type="image/png">
+    <link rel="apple-touch-icon" href="template.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>txt2clip</h1>
+            <p>Upload a text file and copy its content to your clipboard</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept="text/*,.txt,.md,.json,.xml,.csv,.log" style="display: none;">
+                <button id="uploadBtn" class="btn btn-upload">Upload File</button>
+            </div>
+
+            <div id="fileInfo" class="file-info" style="display: none;">
+                <div class="info-row">
+                    <span><strong>Encoding:</strong> <span id="encoding">UTF-8</span></span>
+                    <span><strong>Characters:</strong> <span id="charCount">0</span></span>
+                </div>
+            </div>
+
+            <div id="codeSection" class="code-section" style="display: none;">
+                <pre><code id="codeBlock"></code></pre>
+                <button id="copyBtn" class="btn btn-copy">
+                    <span id="copyText">Copy to Clipboard</span>
+                    <span id="copySpinner" class="spinner" style="display: none;"></span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
