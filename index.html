@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Template</title>
+    <title>txt2clip - Text File to Clipboard</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="template.png" type="image/png">
     <link rel="apple-touch-icon" href="template.png">
@@ -13,44 +13,43 @@
 
     <header>
         <div class="container">
-            <h1>Website Template</h1>
-            <p>A starting point for your next single-page website.</p>
+            <h1>txt2clip</h1>
+            <p>Upload a text file and copy its content to your clipboard</p>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Welcome to Your New Website</h2>
-                <p>This is a modern, responsive, and attractive template for your next project.</p>
-                <a href="#features" class="btn">Learn More</a>
-            </div>
-        </section>
-
-        <section id="features" class="container">
-            <h2>Features</h2>
-            <div class="features">
-                <div class="feature">
-                    <h3>PWA Ready</h3>
-                    <p>Includes a manifest file to allow the website to be installed as a Progressive Web App.</p>
-                </div>
-                <div class="feature">
-                    <h3>Modern Design</h3>
-                    <p>A clean and modern design with a responsive layout, built with HTML, CSS, and vanilla JavaScript.</p>
-                </div>
-                <div class="feature">
-                    <h3>iOS Home Screen Icon</h3>
-                    <p>Support for adding the website to the home screen on iOS devices with a beautiful icon.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
         <div class="container">
-            <p>&copy; 2025 Your Name or Company</p>
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept="text/*,.txt,.md,.json,.xml,.csv,.log" style="display: none;">
+                <button
+                    id="uploadBtn"
+                    class="btn btn-upload"
+                    type="button"
+                    aria-label="Upload a text file and prepare its contents to copy to the clipboard"
+                >
+                    Upload File
+                </button>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;" role="alert"></div>
+
+            <div id="fileInfo" class="file-info" style="display: none;">
+                <div class="info-row">
+                    <span><strong>Encoding:</strong> <span id="encoding">UTF-8</span></span>
+                    <span><strong>Characters:</strong> <span id="charCount">0</span></span>
+                </div>
+            </div>
+
+            <div id="codeSection" class="code-section" style="display: none;">
+                <pre><code id="codeBlock"></code></pre>
+                <button id="copyBtn" class="btn btn-copy">
+                    <span id="copyText" aria-live="polite" aria-busy="false">Copy to Clipboard</span>
+                    <span id="copySpinner" class="spinner" style="display: none;"></span>
+                </button>
+            </div>
         </div>
-    </footer>
+    </main>
 
     <script src="assets/js/main.js"></script>
 </body>
