@@ -61,13 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.readAsText(file, 'UTF-8');
     }
 
-    // Simple encoding detection
+    // Analyze text content and report encoding type
     function detectEncoding(text) {
-        // This is a simplified version - in reality, encoding detection is complex
-        // We're reading as UTF-8, so we'll report that
-        // Could be enhanced to detect ASCII, UTF-16, etc.
+        // Note: File is read as UTF-8 (line 61), so this checks if the content
+        // is ASCII-compatible (only contains ASCII characters) or requires UTF-8
+        // This is a simplified approach - true encoding detection would need
+        // to analyze the raw bytes before decoding
         
-        // Check if it's pure ASCII
+        // Check if all characters are in the ASCII range (0x00-0x7F)
         const isAscii = /^[\x00-\x7F]*$/.test(text);
         if (isAscii) {
             return 'ASCII';
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         copyBtn.disabled = true;
 
         try {
-            // Use the Clipboard API
+            // Use the Clipboard API (requires HTTPS or localhost)
             await navigator.clipboard.writeText(fileContent);
 
             // Show success state
