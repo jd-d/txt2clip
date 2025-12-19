@@ -22,8 +22,17 @@
         <div class="container">
             <div class="upload-section">
                 <input type="file" id="fileInput" accept="text/*,.txt,.md,.json,.xml,.csv,.log" style="display: none;">
-                <button id="uploadBtn" class="btn btn-upload">Upload File</button>
+                <button
+                    id="uploadBtn"
+                    class="btn btn-upload"
+                    type="button"
+                    aria-label="Upload a text file and prepare its contents to copy to the clipboard"
+                >
+                    Upload File
+                </button>
             </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;" role="alert"></div>
 
             <div id="fileInfo" class="file-info" style="display: none;">
                 <div class="info-row">
@@ -35,7 +44,7 @@
             <div id="codeSection" class="code-section" style="display: none;">
                 <pre><code id="codeBlock"></code></pre>
                 <button id="copyBtn" class="btn btn-copy">
-                    <span id="copyText">Copy to Clipboard</span>
+                    <span id="copyText" aria-live="polite" aria-busy="false">Copy to Clipboard</span>
                     <span id="copySpinner" class="spinner" style="display: none;"></span>
                 </button>
             </div>
