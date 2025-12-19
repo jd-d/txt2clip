@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Analyze text content and report a *description* of characters, not true file encoding
     function detectEncoding(text) {
         // NOTE:
-        // - The file is always read as UTF-8 text (see reader.readAsText on line 61).
+        // - The file is always read as UTF-8 text (see reader.readAsText on line 127).
         // - We therefore cannot reliably detect the original on-disk encoding here.
         // - This function only reports whether the decoded text is ASCII-only or
         //   contains non-ASCII characters, and clearly labels UTF-8 as "assumed".
